@@ -3,21 +3,25 @@ open class Color(
     var symbol:String,
     var hexcode:String
 ){
-    init {
-        println("Color created with name = $name, symbol = $symbol, and hexcode = $hexcode" )
-    }
+   open fun returnColor(name:String, symbol:String, hexcode: String) {
+       println("color created with name is $name symbol is $symbol and hexcode is $hexcode")
+   }
     fun changeName(newName:String){
        name = newName
     }
 }
-class RainBow():Color("Red", "Life", "#FF0000"){
-    init {
-       println("Red")
+class RainBow():Color("", "", ""){
+    override open fun returnColor(name: String, symbol: String, hexcode: String) {
+        super.returnColor(name, symbol, hexcode)
+        println("The RainBow Colors are:")
+            println("Red")
+
     }
+
 }
 fun main(){
-    val mycolor = Color("White", "WHT", "#ffffff")
     val myrainBow = RainBow()
+    myrainBow.returnColor("white", "Peace", "#FFFFFF")
     myrainBow.changeName("Orange")
     println(myrainBow.name)
     myrainBow.changeName("Yellow")
@@ -30,6 +34,7 @@ fun main(){
     println(myrainBow.name)
     myrainBow.changeName("Violet")
     println(myrainBow.name)
+
 
 
 
